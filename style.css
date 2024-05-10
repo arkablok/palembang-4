@@ -1,0 +1,40 @@
+body {
+    background-color: #DEE5F0;
+    font-family: "Open Sans";
+}
+
+.wrapper-card {
+    display: flex;
+    justify-content: flex-end; /* Menggeser ke kanan */
+}
+
+.card {
+    background-color: #36D1DC;
+    width: 100%;
+    border: 1px solid #eee;
+    padding: 20px;
+}
+
+.card-content {
+    display: flex;
+    align-items: center; /* Mengatur gambar dan judul agar berada dalam satu baris */
+}
+
+.image-wrapper {
+    margin-right: 10px; /* Jarak antara gambar dan judul */
+}
+
+.card img {
+    width: 63px;
+    height: 63px;
+}
+
+.title-card {
+    color: white;
+    margin: 0; /* Menghapus margin default */
+}
+
+.card-content p {
+    margin: 0;
+    color: white; /* Menghapus margin default */
+}
