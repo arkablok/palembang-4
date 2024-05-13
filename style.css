@@ -1,21 +1,30 @@
+
 body {
     background-color: #DEE5F0;
     font-family: "Open Sans";
 }
 
-.wrapper-card {
-    display: flex;
-    justify-content: flex-end; /* Menggeser ke kanan */
+body, html {
+    margin: 0;
+    padding: 0;
 }
 
-.card {
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* Menggeser ke kanan */
+    margin: 0; /* Menghapus margin default */
+    padding: 0;
+}
+
+.nav-1 {
     background-color: #36D1DC;
     width: 100%;
     border: 1px solid #eee;
     padding: 20px;
+    margin: 0;
 }
 
-.card-content {
+.navbar-1 {
     display: flex;
     align-items: center; /* Mengatur gambar dan judul agar berada dalam satu baris */
 }
@@ -24,17 +33,93 @@ body {
     margin-right: 10px; /* Jarak antara gambar dan judul */
 }
 
-.card img {
+.nav-1 img {
     width: 63px;
     height: 63px;
 }
 
-.title-card {
+.title {
     color: white;
     margin: 0; /* Menghapus margin default */
 }
 
-.card-content p {
+.navbar-1 p {
     margin: 0;
     color: white; /* Menghapus margin default */
+}
+
+/* //section// */
+/* Default styles */
+.wrapper-card {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #fff;
+    width: 350px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.title-card {
+    margin: 0;
+    text-align: left;
+    color: #5B86E5;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text {
+    flex-grow: 1;
+}
+
+.price {
+    margin-top: 0;
+}
+
+.image {
+    margin-left: 20px;
+    flex-shrink: 0; /* Prevents image from shrinking */
+    order: 2; /* Change the order to display on the right */
+}
+
+.image img {
+    max-width: 20%; /* Adjusted to fit container */
+}
+
+/* Responsive styles for screens smaller than 768px */
+@media (max-width: 768px) {
+    .wrapper-card {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center cards horizontally */
+    }
+
+    .card {
+        width: 90%; /* Adjust card width */
+        margin: 20px 0; /* Add margin between cards */
+    }
+
+    .image {
+        margin-left: 0; /* Remove margin for image */
+        margin-top: 10px; /* Adjust margin top for image */
+        order: 1; /* Change order to display image above text */
+        text-align: center; /* Center image */
+    }
+
+    .title-card,
+    .price {
+        text-align: center; /* Center text */
+    }
 }
