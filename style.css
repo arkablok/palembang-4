@@ -58,7 +58,7 @@ header .text .team{
 
 .wrapper{
     display: flex;
-    padding-top: 80px;
+    padding-top: 90px;
     padding-left: 30px;
     padding-right: 30px;
     justify-content: center;
@@ -67,14 +67,14 @@ header .text .team{
 .wrapper .row, .wrapper .chart{
     display: flex;
     padding-top: 0px;
-    gap: 20px;
+    gap: 60px;
     justify-content: center;
 }
 
 .card {
     display: flex;
     background-color: #fff;
-    width: 220px;
+    width: 250px;
     border-radius: 8px;
     border: 1px solid #eee;
     padding: 10px;
@@ -136,13 +136,13 @@ header .text .team{
 .chart .container {
     display: grid;
     grid-template-columns: 1fr 1fr; 
-    gap: 20px; 
+    gap: 60px; 
 }
 
 .chart .containers {
     display: grid;
     grid-template-columns: 1fr 1fr; 
-    gap: 20px; 
+    gap: 60px; 
 }
 
 .chart .column {
@@ -154,10 +154,10 @@ header .text .team{
 
 .chart .container .right, 
 .chart .containers .right{
-    margin-right: 20px;
+    margin-right: 40px;
 }
 
 .chart .container .left, 
 .chart .containers .left{
-    margin-left: 20px;
+    margin-left: 40px;
 }
