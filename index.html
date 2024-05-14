@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navigasi">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="assets/revou_logo.jpeg" alt="">
+                </span>
+
+                <div class="text">
+                    <span class="title">VENDING MACHINE REPORT</span>
+                    <span class="team">Team 4 Palembang</span>
+                </div>
+            </div>
+
+            <div class="filter">
+            </div>
+        </header>
+    </nav>
+
+    <section class="wrapper">
+        <div class="row">
+            <div class="card">
+                <div class="insight">
+                    <span id="point">TOTAL TRANSACTION</span>
+                    <span id="number">8,834</span>
+                    <span id="increase"><img src="assets/arrow-upward.png" alt=""> 20,5% From Previous 1 Month</span>
+                </div>
+
+                <div class="properties">
+                    <img src="assets/transaction.png" alt="">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="insight">
+                    <span id="point">TOTAL SALES</span>
+                    <span id="number">$ 184045.25</span>
+                    <span id="decrease"><img src="assets/down-arrow.png" alt=""> 20,5% From Previous 1 Month</span>
+                </div>
+
+                <div class="properties">
+                    <img src="assets/transaction.png" alt="">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="insight">
+                    <span id="point">QUANTITY SALES</span>
+                    <span id="number">9,393</span>
+                    <span id="increase"><img src="assets/arrow-upward.png" alt=""> 20,5% From Previous 1 Month</span>
+                </div>
+
+                <div class="properties">
+                    <img src="assets/transaction.png" alt="">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="insight">
+                    <span id="point">TOTAL PRODUCS</span>
+                    <span id="number">174</span>
+                    <span id="increase">All types of producs have been sold</span>
+                </div>
+
+                <div class="properties">
+                    <img src="assets/transaction.png" alt="">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="chart">
+        <div class="container">
+            <div class="column left">
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="column right">
+                <canvas class="lineChart"></canvas>
+            </div>
+        </div>
+    
+        <div class="containers">
+            <div class="column left">
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="column right">
+                <canvas id=""></canvas>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
