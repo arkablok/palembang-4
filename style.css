@@ -57,7 +57,7 @@ header .text .team{
 }
 
 .wrapper{
-    display: flex;
+    display: block;
     padding-top: 90px;
     padding-left: 30px;
     padding-right: 30px;
@@ -79,16 +79,6 @@ header .text .team{
     border: 1px solid #eee;
     padding: 10px;
 }
-
-.properties{
-    padding-top: 0px;
-    padding-right: 10px;
-}
-
-/* .card .properties img{
-    width: 20px;
-    height: auto;
-} */
 
 .card .insight{
     display: flex;
@@ -123,10 +113,12 @@ header .text .team{
     display: flex;
     align-items: right;
     justify-content: right;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
     margin-top: 0px;
+    padding-top: 0px;
+    padding-right: 10px;
 }
 
 .chart{
