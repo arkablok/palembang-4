@@ -126,15 +126,19 @@ header .text .team{
 }
 
 .chart .container {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr; 
     gap: 60px; 
+    justify-content: center;
+    align-items: center;
 }
 
 .chart .containers {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr; 
     gap: 60px; 
+    justify-content: center;
+    align-items: center;
 }
 
 .chart .column {
@@ -142,14 +146,15 @@ header .text .team{
     padding: 20px;
     margin-top: 20px;
     border-radius: 8px;
+    width: 565px;
 }
 
 .chart .container .right, 
 .chart .containers .right{
-    margin-right: 40px;
+    margin-right: 10px;
 }
 
 .chart .container .left, 
 .chart .containers .left{
-    margin-left: 40px;
+    margin-left: 10px;
 }
