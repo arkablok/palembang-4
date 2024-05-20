@@ -1,0 +1,37 @@
+[{
+    "month": "Jan",
+    "totalTransaksi": "873.5"
+  }, {
+    "month": "Feb",
+    "totalTransaksi": "897.25"
+  }, {
+    "month": "Mar",
+    "totalTransaksi": "1108.5"
+  }, {
+    "month": "Apr",
+    "totalTransaksi": "1615.0"
+  }, {
+    "month": "May",
+    "totalTransaksi": "1564.5"
+  }, {
+    "month": "Jun",
+    "totalTransaksi": "1782.25"
+  }, {
+    "month": "Jul",
+    "totalTransaksi": "2105.25"
+  }, {
+    "month": "Aug",
+    "totalTransaksi": "2011.25"
+  }, {
+    "month": "Sept",
+    "totalTransaksi": "1641.0"
+  }, {
+    "month": "Oct",
+    "totalTransaksi": "1595.75"
+  }, {
+    "month": "Nov",
+    "totalTransaksi": "1489.25"
+  }, {
+    "month": "Des",
+    "totalTransaksi": "1361.75"
+  }]
