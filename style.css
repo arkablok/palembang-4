@@ -152,9 +152,36 @@ header .text .team{
 .chart .container .right, 
 .chart .containers .right{
     margin-right: 10px;
+    width: 565px;
+    height: 390px
 }
 
 .chart .container .left, 
 .chart .containers .left{
     margin-left: 10px;
+    width: 565px;
+    height: 390px
+}
+
+.chart .select-wrapper #Selector{
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    width: 100px;
+    height: 30px;
+    background-color: #FFF;
+    border-radius: 8px;
+    margin-left: 450px;
+    margin-top: -48px;
+}
+
+.chart .container .column #doughnutChart{
+    width: 100%;
+    max-width: 540px;
+    height: 100%;
+    max-height: 300px;
+}
+
+.column #doughnutChart{
+    margin-top: 20px;
 }

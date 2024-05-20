@@ -81,16 +81,27 @@
     <div class="chart">
         <div class="container">
             <div class="column left">
-                <canvas class="columnChart"></canvas>
+                <canvas id="columnChart"></canvas>
             </div>
             <div class="column right">
-                <canvas class="doughnutChart"></canvas>
+                <h2 style="color: #5B86E5;">TRANSACTION FROM MACHINE</h2>
+                <div class="select-wrapper">
+                    <select id="Selector" onchange="updateChart2()">
+                        <option value="Type">Type</option>
+                        <option value="Earle Asphalt x1371">Earle Asphalt x1371</option>
+                        <option value="EB Public Library x1380">EB Public Library x1380</option>
+                        <option value="BSQ Mall x1364 - Zales">BSQ Mall x1364 - Zales</option>
+                        <option value="GuttenPlans x1367">GuttenPlans x1367</option>
+                        <option value="BSQ Mall x1366 - ATT">BSQ Mall x1366 - ATT</option>
+                    </select>
+                </div>
+                <canvas id="doughnutChart"></canvas>
             </div>
         </div>
     
         <div class="containers">
             <div class="column left">
-                <h1 style="color: #5B86E5;">TRANSACTION FROM LOCATION</h1>
+                <h2 style="color: #5B86E5;">TRANSACTION FROM LOCATION</h2>
                 <div class="select-wrapper">
                     <select id="locationSelector" onchange="updateChart()">
                         <option value="All">All Locations</option>
@@ -104,11 +115,20 @@
                 <canvas id="myChart"></canvas>
             </div>
             <div class="column right">
-                <canvas class="lineChart"></canvas>
+                <h2 style= "color: #5B86E5;">MONTHLY SALES</h2>
+                <div class="select-wrapper">
+                    <select id="Selector">
+                        <option value="" selected>Quartile</option>
+                        <option>Quartile 1</option>
+                        <option>Quartile 2</option>
+                        <option>Quartile 3</option>
+                        <option>Quartile 4</option>
+                    </select>
+                </div>
+                <canvas id="lineChart"></canvas>
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
         let myChart;
@@ -178,6 +198,11 @@
         // Panggil fungsi updateChart saat halaman dimuat pertama kali
         window.onload = updateChart;
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="doughnutChart.js"></script>
+    <script src="lineChart.js"></script>
 
 </body>
 </html>
