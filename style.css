@@ -163,7 +163,7 @@ header .text .team{
     height: 390px
 }
 
-.chart .select-wrapper #Selector, #Selector1{
+.chart .select-wrapper #Selector, #Selector1, #locationSelector{
     display: flex;
     align-items: right;
     justify-content: right;
