@@ -1,7 +1,7 @@
 let doughnutChart;
 let dataJson;
 
-fetch('data.json')
+fetch('data_vending.json')
 .then(response => response.json())
 .then(data => {
     dataJson = data;
@@ -10,10 +10,16 @@ fetch('data.json')
 
 function updateChart2() {
     const selectedMachine = document.getElementById('Selector1').value;
-    const filteredData = selectedMachine === "Type" ? dataJson : dataJson.filter(item => item.machine === selectedMachine);
+    const filteredData = selectedMachine === "Type" ? dataJson : dataJson.filter(item => item.Machine === selectedMachine);
 
-    const labels = filteredData.map(item => item.machine);
-    const dataValues = filteredData.map(item => parseInt(item.transaction));
+    const locationTransactionCount = filteredData.reduce((acc, item) => {
+        const machine = item.Machine;
+        acc[machine] = (acc[machine] || 0) + 1;
+        return acc;
+    }, {});
+
+    const labels = Object.keys(locationTransactionCount);
+    const dataValues = Object.values(locationTransactionCount);
 
     const sum = dataValues.reduce((acc, value) => acc + value, 0);
     

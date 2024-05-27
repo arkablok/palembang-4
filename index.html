@@ -131,78 +131,10 @@
         </div>
     </div>
 
-    <script>
-        let myChart;
-        let jsonData;
-
-        // Ambil data JSON saat halaman dimuat pertama kali
-        fetch('transaksi.json')
-            .then(response => response.json())
-            .then(data => {
-                jsonData = data;
-
-                // Hitung total transaksi
-                const totalTransaction = jsonData.reduce((sum, item) => sum + item.Transaction, 0);
-
-                // Tampilkan total transaksi di elemen dengan id 'number'
-                document.getElementById('number').innerText = totalTransaction;
-
-                // Panggil fungsi updateChart untuk menampilkan grafik
-                updateChart();
-            });
-
-        function updateChart() {
-            const selectedLocation = document.getElementById('locationSelector').value;
-
-            // Filter data berdasarkan lokasi yang dipilih atau tampilkan semua data jika 'All Locations' dipilih
-            const filteredData = selectedLocation === "All" ? jsonData : jsonData.filter(item => item.Location === selectedLocation);
-
-            // Mendapatkan label dan data dari JSON yang telah difilter
-            const labels = filteredData.map(item => item.Location);
-            const dataValues = filteredData.map(item => item.Transaction);
-
-            // Jika grafik sudah ada, perbarui datanya
-            if (myChart) {
-                myChart.data.labels = labels;
-                myChart.data.datasets[0].data = dataValues;
-                myChart.update();
-            } else {
-                // Konfigurasi grafik
-                const config = {
-                    type: 'bar',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Total Transaksi',
-                            data: dataValues,
-                            backgroundColor: 'rgba(0, 91, 191, 1)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        indexAxis: 'y',
-                        scales: {
-                            x: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                };
-
-                // Membuat grafik menggunakan konfigurasi
-                const ctx = document.getElementById('myChart').getContext('2d');
-                myChart = new Chart(ctx, config);
-            }
-        }
-
-        // Panggil fungsi updateChart saat halaman dimuat pertama kali
-        window.onload = updateChart;
-    </script>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="doughnutChart.js"></script>
+    <script src="bar.js"></script>
     <script src="lineChart.js"></script>
 
 </body>
