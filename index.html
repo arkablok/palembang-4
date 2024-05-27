@@ -65,9 +65,9 @@
 
             <div class="card">
                 <div class="insight">
-                    <span id="point">TOTAL PRODUCS</span>
+                    <span id="point">TOTAL PRODUCTS</span>
                     <span id="number">174</span>
-                    <span id="increase">All types of producs have been sold</span>
+                    <span id="increase">All types of products have been sold</span>
                 </div>
 
                 <div class="properties">
@@ -81,8 +81,20 @@
     <div class="chart">
         <div class="container">
             <div class="column left">
+                <h2 style="color: #5b86e5">BEST SELLING PRODUCTS</h2>
+                <div class="select-wrapper">
+                  <select id="categorySelector" onchange="updateChart1()">
+                    <option value="Type">All Categories</option>
+                    <option value="Food">Food</option>
+                    <option value="Water">Water</option>
+                    <option value="Carbonated">Carbonated</option>
+                    <option value="Non Carbonated">Non Carbonated</option>
+                  </select>
+                </div>
+                <br /><br />
                 <canvas id="columnChart"></canvas>
-            </div>
+              </div>
+      
             <div class="column right">
                 <h2 style="color: #5B86E5;">TRANSACTION FROM MACHINE</h2>
                 <div class="select-wrapper">
@@ -136,6 +148,7 @@
     <script src="doughnutChart.js"></script>
     <script src="bar.js"></script>
     <script src="lineChart.js"></script>
+    <script src="columnChart.js"></script>
 
 </body>
 </html>

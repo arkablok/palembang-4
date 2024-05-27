@@ -164,7 +164,7 @@ header .text .team{
 }
 
 .chart .select-wrapper #quarterSelector,
-#Selector1, #locationSelector{
+#Selector1, #locationSelector, #categorySelector{
     display: flex;
     align-items: right;
     justify-content: right;
