@@ -97,15 +97,17 @@
       
             <div class="column right">
                 <h2 style="color: #5B86E5;">TRANSACTION FROM MACHINE</h2>
-                <div class="select-wrapper">
-                    <select id="Selector1" onchange="updateChart2()">
-                        <option value="Type">Type</option>
-                        <option value="Earle Asphalt x1371">Earle Asphalt x1371</option>
-                        <option value="EB Public Library x1380">EB Public Library x1380</option>
-                        <option value="BSQ Mall x1364 - Zales">BSQ Mall x1364 - Zales</option>
-                        <option value="GuttenPlans x1367">GuttenPlans x1367</option>
-                        <option value="BSQ Mall x1366 - ATT">BSQ Mall x1366 - ATT</option>
-                    </select>
+                <div class="col-chart">
+                    <div class="chart-con">
+                        <canvas id="doughnutChart"></canvas>
+                    </div>
+                    <div class="select-wrapper">
+                        <label><input type="checkbox" id="EarleAsphalt">Earle Asphalt x1371</label>
+                        <label><input type="checkbox" id="PublicLibrary">EB Public Library x1380</label>
+                        <label><input type="checkbox" id="BsqZales">BSQ Mall x1364 - Zales</label>
+                        <label><input type="checkbox" id="GuttenPlans">GuttenPlans x1367</label>
+                        <label><input type="checkbox" id="BsqAtt">BSQ Mall x1366 - ATT</label>                
+                    </div>
                 </div>
                 <canvas id="doughnutChart"></canvas>
             </div>

@@ -1,5 +1,5 @@
 // Mem-fetch data dari file database.json
-fetch("./database.json")
+fetch('data_vending.json')
     .then((res) => {
         // Memeriksa apakah ada error pada response
         if (!res.ok) {

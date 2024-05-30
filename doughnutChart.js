@@ -1,76 +1,76 @@
-let doughnutChart;
-let dataJson;
-
 fetch('data_vending.json')
 .then(response => response.json())
 .then(data => {
-    dataJson = data;
-    updateChart2();
+    const jsonData = data;
+    const transactionCountReduce = jsonData.reduce((acc, curr) => acc + 1, 0);
+
+    const machineNames = [...new Set(data.map(item => item.Machine))];
+    const machineData = machineNames.map(machineName => {
+    const machineTransactions = data.filter(item => item.Machine === machineName);
+    return machineTransactions.length;
 });
 
-function updateChart2() {
-    const selectedMachine = document.getElementById('Selector1').value;
-    const filteredData = selectedMachine === "Type" ? dataJson : dataJson.filter(item => item.Machine === selectedMachine);
+const myDoughnutChartCtx = document.getElementById('doughnutChart').getContext('2d');
 
-    const locationTransactionCount = filteredData.reduce((acc, item) => {
-        const machine = item.Machine;
-        acc[machine] = (acc[machine] || 0) + 1;
-        return acc;
-    }, {});
-
-    const labels = Object.keys(locationTransactionCount);
-    const dataValues = Object.values(locationTransactionCount);
-
-    const sum = dataValues.reduce((acc, value) => acc + value, 0);
-    
-    if (doughnutChart) {
-        doughnutChart.data.labels = labels;
-        doughnutChart.data.datasets[0].data = dataValues;
-        doughnutChart.update();
-    } else {
-        const ctx = document.getElementById('doughnutChart').getContext('2d');
-        doughnutChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: 'Transaction from machine',
-                        data: dataValues,
-                        backgroundColor: ['#0372ef', '#2e8bf3', '#5ba5f5', '#89bef8', '#b7d8fb'],
-                    }
-                ]
+const myDoughnutChart = new Chart(myDoughnutChartCtx, {
+    type: "doughnut",
+    data: {
+        labels: machineNames,
+        datasets: [{
+            label: 'Transactions',
+            data: machineData,
+            backgroundColor: ["#0372ef", "#2e8bf3", "#5ba5f5", "#89bef8", "#b7d8fb"]
+        }]
+    },
+    options:  {
+        borderWidth: 0,
+        hoverBorderWidth: 0,
+        responsive: true,
+        maintainAspectRatio: false,
+        title: {
+            display: true,
+            text: `Total transactions: ${transactionCountReduce}`
+        },
+        plugins: {
+            legend: {
+                display: false
             },
-            options: {
-                borderWidth: 0,
-                hoverBorderWidth: 0,
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'right',
-                        labels: {
-                            font: {
-                                size: 13,
-                            },
-                            boxWidth: 13,
-                            usePointStyle: true,
-                            padding: 10,
-                        },
-                    }, 
-                    datalabels: {
-                        color: 'white',
-                        formatter: (value) => {
-                            let percentage = (value * 100 / sum).toFixed(1) + '%';
-                            return percentage;
-                        } 
-                    }
+            datalabels: {
+                color: '#fff',
+                formatter: (value, ctx) => {
+                    let sum = 0;
+                    let dataArr = ctx.chart.data.datasets[0].data;
+                    dataArr.forEach(data => {
+                        sum += data;
+                    });
+                    let percentage = (value * 100 / sum).toFixed(1) + "%";
+                    return percentage;
                 }
-            },
-            plugins: [ChartDataLabels]
-        });
-    }
-}
+            }
+        }
+    },
+    plugins: [ChartDataLabels]
+});
 
-document.getElementById('Selector1').addEventListener('change', updateChart2);
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    // Add event listener to checkboxes
+    checkboxes.forEach((cb, i) => {
+        cb.addEventListener('change', () => {
+            const allUnchecked = Array.from(checkboxes).every(cb => !cb.checked);
+            if (allUnchecked) {
+            // Reset chart data to original state
+            myDoughnutChart.data.labels = machineNames;
+            myDoughnutChart.data.datasets[0].data = machineData;
+            } else {
+            const selectedMachines = machineNames.filter((machineName, index) => checkboxes.item(index).checked);
+            const labels = selectedMachines.map(machineName => machineName);
+            const data = selectedMachines.map(machineName => machineData[machineNames.indexOf(machineName)]);
+            myDoughnutChart.data.labels = labels;
+            myDoughnutChart.data.datasets[0].data = data;
+            }
+            myDoughnutChart.update();
+        });
+    });
+})
+.catch(error => console.error('Error fetching data:', error));
