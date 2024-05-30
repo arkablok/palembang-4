@@ -102,11 +102,11 @@
                         <canvas id="doughnutChart"></canvas>
                     </div>
                     <div class="select-wrapper">
-                        <label><input type="checkbox" id="EarleAsphalt">Earle Asphalt x1371</label>
-                        <label><input type="checkbox" id="PublicLibrary">EB Public Library x1380</label>
-                        <label><input type="checkbox" id="BsqZales">BSQ Mall x1364 - Zales</label>
-                        <label><input type="checkbox" id="GuttenPlans">GuttenPlans x1367</label>
-                        <label><input type="checkbox" id="BsqAtt">BSQ Mall x1366 - ATT</label>                
+                        <label><input type="checkbox" id="doughnut" value="EarleAsphalt">Earle Asphalt x1371</label>
+                        <label><input type="checkbox" id="doughnut" value="PublicLibrary">EB Public Library x1380</label>
+                        <label><input type="checkbox" id="doughnut" value="BsqZales">BSQ Mall x1364 - Zales</label>
+                        <label><input type="checkbox" id="doughnut" value="GuttenPlans">GuttenPlans x1367</label>
+                        <label><input type="checkbox" id="doughnut" value="BsqAtt">BSQ Mall x1366 - ATT</label>                
                     </div>
                 </div>
                 <canvas id="doughnutChart"></canvas>
@@ -119,11 +119,11 @@
                 <div class="select-wrapper">
                     <!-- Change dropdown to checkboxes -->
                     <div id="locationCheckboxes" class="checkbox-row">
-                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" value="GuttenPlans" onchange="updateChart()"> GuttenPlans</label>
-                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" value="EB Public Library" onchange="updateChart()"> EB Public Library</label>
-                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" value="Earle Asphalt" onchange="updateChart()"> Earle Asphalt</label>
-                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" value="Brunswick Sq Mall" onchange="updateChart()"> Brunswick Sq Mall</label>
-                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" value="All" onchange="selectAllLocations(this)"> All Locations</label>
+                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" id="bar" value="GuttenPlans" onchange="updateChart()"> GuttenPlans</label>
+                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" id="bar" value="EB Public Library" onchange="updateChart()"> EB Public Library</label>
+                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" id="bar" value="Earle Asphalt" onchange="updateChart()"> Earle Asphalt</label>
+                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" id="bar" value="Brunswick Sq Mall" onchange="updateChart()"> Brunswick Sq Mall</label>
+                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" id="bar" value="All" onchange="selectAllLocations(this)"> All Locations</label>
                     </div>
                 </div>
                 <canvas id="myChart"></canvas>

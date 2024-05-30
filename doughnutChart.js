@@ -52,7 +52,7 @@ const myDoughnutChart = new Chart(myDoughnutChartCtx, {
     plugins: [ChartDataLabels]
 });
 
-const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const checkboxes = document.querySelectorAll('input[id="doughnut"]');
 
     // Add event listener to checkboxes
     checkboxes.forEach((cb, i) => {

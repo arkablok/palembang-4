@@ -18,7 +18,7 @@ let myChart;
 
         // Function to update the chart
         function updateChart() {
-            const checkboxes = document.querySelectorAll('#locationCheckboxes input[type="checkbox"]');
+            const checkboxes = document.querySelectorAll('#locationCheckboxes input[id="bar"]');
             let selectedLocations = [];
             
             checkboxes.forEach(checkbox => {
@@ -83,7 +83,7 @@ let myChart;
 
         // Function to select all locations
         function selectAllLocations(checkbox) {
-            const checkboxes = document.querySelectorAll('#locationCheckboxes input[type="checkbox"]');
+            const checkboxes = document.querySelectorAll('#locationCheckboxes input[id="bar"]');
             checkboxes.forEach(cb => cb.checked = checkbox.checked);
             updateChart();
         }
