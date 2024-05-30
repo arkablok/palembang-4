@@ -115,14 +115,14 @@
             <div class="column left">
                 <h2 style="color: #5B86E5;">TRANSACTION FROM LOCATION</h2>
                 <div class="select-wrapper">
-                    <select id="locationSelector" onchange="updateChart()">
-                        <option value="All">All Locations</option>
-                        <option value="GuttenPlans">GuttenPlans</option>
-                        <option value="EB Public Library">EB Public Library</option>
-                        <option value="Earle Asphalt">Earle Asphalt</option>
-                        <option value="Brunswick Sq Mall">Brunswick Sq Mall</option>
-                        <!-- Tambahkan opsi lain sesuai kebutuhan -->
-                    </select>
+                    <!-- Change dropdown to checkboxes -->
+                    <div id="locationCheckboxes" class="checkbox-row">
+                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" value="GuttenPlans" onchange="updateChart()"> GuttenPlans</label>
+                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" value="EB Public Library" onchange="updateChart()"> EB Public Library</label>
+                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" value="Earle Asphalt" onchange="updateChart()"> Earle Asphalt</label>
+                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" value="Brunswick Sq Mall" onchange="updateChart()"> Brunswick Sq Mall</label>
+                        <label style="font-size: 12px;" class="small-text"><input type="checkbox" value="All" onchange="selectAllLocations(this)"> All Locations</label>
+                    </div>
                 </div>
                 <canvas id="myChart"></canvas>
             </div>
