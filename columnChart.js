@@ -1,4 +1,3 @@
-// Mem-fetch data dari file database.json
 fetch('data_vending.json')
     .then((res) => {
         // Memeriksa apakah ada error pada response
@@ -36,18 +35,12 @@ fetch('data_vending.json')
             let dataFilters;
 
             if (selectedCategory === 'Type') {
-                let topProducts = [];
-                // Mengambil top 2 produk untuk setiap kategori
-                categories.forEach(category => {
-                    const productsInCategory = labels
-                        .filter(label => aggregatedData[label].Category === category)
-                        .sort((a, b) => aggregatedData[b].RQty - aggregatedData[a].RQty)
-                        .slice(0, 2); // Mengambil 2 produk teratas
-                    topProducts.push(...productsInCategory);
-                });
-                labels = topProducts;
+                // Mengambil top 10 produk terlaris di semua kategori
+                labels = labels
+                    .sort((a, b) => aggregatedData[b].RQty - aggregatedData[a].RQty)
+                    .slice(0, 10); // Mengambil 10 produk teratas
 
-                // Membuat dataset untuk setiap kategori
+                // Membuat dataset untuk semua kategori
                 dataFilters = categories.map(category => ({
                     label: category,
                     data: labels.map(label => aggregatedData[label].Category === category ? aggregatedData[label].RQty : 0),
@@ -75,6 +68,8 @@ fetch('data_vending.json')
             if (myChart) {
                 myChart.data.labels = labels;
                 myChart.data.datasets = dataFilters;
+                myChart.options.elements.bar.barPercentage = selectedCategory === 'Type' ? 1 : 0.9;
+                myChart.options.elements.bar.categoryPercentage = selectedCategory === 'Type' ? 1 : 0.9;
                 myChart.update();
             } else {
                 const config = {
@@ -109,6 +104,13 @@ fetch('data_vending.json')
                                 },
                             },
                         },
+                        elements: {
+                            bar: {
+                                barThickness: 40, // Atur ketebalan bar di sini
+                                barPercentage: selectedCategory === 'Type' ? 1 : 0.9,
+                                categoryPercentage: selectedCategory === 'Type' ? 1 : 0.9,
+                            }
+                        },
                     },
                 };
 
@@ -131,11 +133,11 @@ function getCategoryColor(category) {
         case 'Food':
             return 'rgba(255, 99, 132, 0.7)';
         case 'Water':
-            return 'rgba(54, 162, 235, 0.7)';
+            return 'rgba(173, 216, 230, 0.7)';
         case 'Carbonated':
-            return 'rgba(255, 206, 86, 0.7)';
+            return 'rgba(144, 238, 144, 0.7)';
         case 'Non Carbonated':
-            return 'rgba(75, 192, 192, 0.7)';
+            return 'rgba(255, 165, 0, 0.7)';
         default:
             return 'rgba(255, 159, 64, 0.7)';
     }
@@ -147,11 +149,11 @@ function getBorderColor(category) {
         case 'Food':
             return 'rgba(255, 99, 132, 1)';
         case 'Water':
-            return 'rgba(54, 162, 235, 1)';
+            return 'rgba(173, 216, 230, 1)';
         case 'Carbonated':
-            return 'rgba(255, 206, 86, 1)';
+            return 'rgba(144, 238, 144, 1)';
         case 'Non Carbonated':
-            return 'rgba(75, 192, 192, 1)';
+            return 'rgba(255, 165, 0, 1)';
         default:
             return 'rgba(255, 159, 64, 1)';
     }
