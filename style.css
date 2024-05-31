@@ -57,12 +57,27 @@ header .text .team{
     display: block;
 }
 
+.filter #selector {
+    float: right;
+    margin: -40px 60px 20px 0;
+    width: 250px;
+    height: 30px;
+    background-color: #FFF;
+    color: #b4c6dd;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: rgba(112, 111, 111, 0.3);
+    box-shadow: 0 2px 5px rgba(112, 111, 111, 0.3);
+}
+
 .wrapper{
     display: block;
     padding-top: 90px;
     justify-content: center;
 }
-
+  
 .wrapper .row, .wrapper .chart{
     display: flex;
     padding-top: 0px;
@@ -70,6 +85,7 @@ header .text .team{
     justify-content: center;
 }
 
+  
 .card {
     display: flex;
     background-color: #fff;
@@ -77,10 +93,10 @@ header .text .team{
     border: 1px solid #eee;
     padding: 10px;
     flex: 1 1 250px;
-    /* flex-direction: column; */
     justify-content: space-between;
     min-width: 185px;
     max-width: 250px;
+
 }
 
 .card .insight{
@@ -168,7 +184,7 @@ header .text .team{
 }
 
 .chart .select-wrapper #quarterSelector,
-#Selector1, #locationSelector, #categorySelector{
+#categorySelector{
     display: flex;
     align-items: right;
     justify-content: right;
@@ -188,7 +204,7 @@ header .text .team{
 
 .col-chart{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     text-align: center;
     gap: 10px;
@@ -198,8 +214,6 @@ header .text .team{
     float: right;
     display: flex;
     flex-direction: column;
-    height: 250px;
-    width: 250px;
     justify-content: center;
     text-align: left;
 }
@@ -216,34 +230,227 @@ header .text .team{
     height: 12px;
 }
 
-.column #doughnutChart{
-    margin: 20px;
+.column #doughnutChart {
+    margin: 10px;
     display: block;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    max-height: 250px;
-    max-width: 300px;
+    height: 250px;
+    width: 300px;
 }
 
 
-@media (max-width: 624px) {
-    .wrapper .row{
-        gap: 20px;
-        width: 200%;
+@media only screen and (max-width: 1024px) {
+    body{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 10px;
     }
 
-    .container, .containers {
-        flex-direction: column;
+    header {
+        padding-top: 5px;
     }
-}
 
-@media (min-width: 1010px) {
-    .row, .chart {
-        flex-direction: row;
+    .navigasi header .image-text {
         align-items: center;
-        width: 130%;
     }
 
+    .navigasi header .image-text .image {
+        margin: 0;
+    }
+
+    .navigasi img {
+        width: 50px;
+        border-radius: 50px;
+        margin-left: 0;
+    }
+
+    header .text .title {
+        margin-left: 10px;
+        margin-top: 0px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    header .text .team {
+        font-size: 9px;
+        margin-left: 10px;
+        margin-top: -2px;
+        display: block;
+    }
+
+    .filter #selector {
+        margin-right: 25px;
+        width: calc(50% - 220px);
+        min-width: 100px;
+    }
+
+    .wrapper .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        
+    }
+
+    .card {
+        max-width: none;
+        padding: 15px;
+    }
+
+    .chart .container, .chart .containers {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .chart .column {
+      width: 100%;
+      margin: 20px;
+    }
+
+    .chart .container .right, .chart .containers .right,
+    .chart .container .left, .chart .containers .left {
+        width: calc(100% - 40px);
+        height: auto;
+        margin: 20px;
+    }
+
+    .col-chart {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .col-chart .select-wrapper{
+        padding-left: 20px;
+    }
+
+    canvas#columnChart, canvas#myChart,
+    canvas#lineChart {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .chart .select-wrapper #quarterSelector, #categorySelector {
+        margin-left: calc(100% - 120px);
+    }
 }
 
+@media only screen and (max-width: 412px) {
+    .navigasi {
+        height: 50px;
+        padding: 0 10px;
+    }
+
+    .navigasi img {
+        width: 30px;
+    }
+
+    header {
+        padding-top: 0;
+    }
+
+    header .text .title {
+        font-size: 13px;
+        font-weight: 500;
+        margin-left: 0;
+    }
+
+    header .text .team {
+        font-size: 5px;
+        margin-left: 0;
+    }
+    
+    .filter #selector {
+        height: 15px;
+        margin-top: -33px;
+        width: calc(50% - 200px);
+        min-width: 80px;
+        font-weight: 400;
+        font-size: 6px;
+    }
+
+    .wrapper {
+        padding-top: 50px;
+    }
+
+    .wrapper .row {
+        gap: 10px;
+        
+    }
+
+    .card {
+        justify-content: center;
+        min-width: 80%;
+        padding-right: 0;
+    }
+
+    .card .insight #point {
+        font-size: 9px;
+    }
+
+    .card .insight #number {
+        font-size: 14px;
+    }
+
+    .card .insight #increase,
+    .card .insight #decrease {
+        font-size: 7px;
+    }
+
+    #increase img, #decrease img {
+        width: 7px;
+        height: 7px;
+    }
+
+    .card .properties {
+        width: 20px;
+        height: 20px;
+        padding-right: 15px;
+    }
+
+    .properties img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .chart {
+        margin-top: 20px;
+    }
+
+    .chart .container .right, .chart .containers .right,
+    .chart .container .left, .chart .containers .left {
+        margin-top: 0;
+    }
+    
+    h2 {
+        font-size: large;
+    }
+
+    .chart .select-wrapper #quarterSelector,
+    #categorySelector {
+        width: 90px;
+        height: 20px;
+        font-size:x-small;
+        font-weight: 400;
+        margin-top: -37px;
+        margin-left: calc(100% - 80px);
+    }
+
+    .chart-con {
+        width: 99%;
+        height: auto;
+    }
+
+    .select-wrapper label {
+        margin-top: 2px;
+        font-size: 8px;
+        font-weight: 500;
+    }
+    
+    .select-wrapper input[type="checkbox"]{
+        width: 9px;
+        height: 9px;
+    }
+}
