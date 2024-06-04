@@ -21,7 +21,7 @@
             </div>
 
             <div class="filter">
-                <select id="selector" onchange="updateChart()">
+                <select id="selector" onchange="updateChart(); update(); updateColumnChart();">
                     <option value="all">1 January 2022 - 31 December 2022</option>
                     <option value="jan">1 - 31 January 2022</option>
                     <option value="feb">1 - 28 February 2022</option>
@@ -69,7 +69,7 @@
             <div class="card">
                 <div class="insight">
                     <span id="point">QUANTITY SALES</span>
-                    <span id="number">9,393</span>
+                    <span id="totalProducts">0</span>
                     <span id="increase"><img src="assets/arrow-upward.png" alt=""> 20,5% From Previous 1 Month</span>
                 </div>
 
@@ -81,7 +81,7 @@
             <div class="card">
                 <div class="insight">
                     <span id="point">TOTAL PRODUCTS</span>
-                    <span id="number">174</span>
+                    <span id="number">0</span>
                     <span id="increase">All types of products have been sold</span>
                 </div>
 
@@ -98,13 +98,13 @@
             <div class="column left">
                 <h2 style="color: #5b86e5">BEST SELLING PRODUCTS</h2>
                 <div class="select-wrapper">
-                  <select id="categorySelector" onchange="updateChart1()">
-                    <option value="Type">All Categories</option>
-                    <option value="Food">Food</option>
-                    <option value="Water">Water</option>
-                    <option value="Carbonated">Carbonated</option>
-                    <option value="Non Carbonated">Non Carbonated</option>
-                  </select>
+                    <select id="categorySelector" onchange="updateColumnChart()">
+                        <option value="Type">All Categories</option>
+                        <option value="Food">Food</option>
+                        <option value="Water">Water</option>
+                        <option value="Carbonated">Carbonated</option>
+                        <option value="Non Carbonated">Non Carbonated</option>
+                    </select>
                 </div>
                 <br /><br />
                 <canvas id="columnChart"></canvas>
@@ -117,11 +117,11 @@
                         <canvas id="doughnutChart"></canvas>
                     </div>
                     <div class="select-wrapper">
-                        <label><input type="checkbox" id="doughnut" value="EarleAsphalt">Earle Asphalt x1371</label>
-                        <label><input type="checkbox" id="doughnut" value="PublicLibrary">EB Public Library x1380</label>
-                        <label><input type="checkbox" id="doughnut" value="BsqZales">BSQ Mall x1364 - Zales</label>
-                        <label><input type="checkbox" id="doughnut" value="GuttenPlans">GuttenPlans x1367</label>
-                        <label><input type="checkbox" id="doughnut" value="BsqAtt">BSQ Mall x1366 - ATT</label>                
+                        <label><input type="checkbox" class="doughnut-checkbox" value="Earle Asphalt x1371">Earle Asphalt x1371</label>
+                        <label><input type="checkbox" class="doughnut-checkbox" value="EB Public Library x1380">EB Public Library x1380</label>
+                        <label><input type="checkbox" class="doughnut-checkbox" value="BSQ Mall x1364 - Zales">BSQ Mall x1364 - Zales</label>
+                        <label><input type="checkbox" class="doughnut-checkbox" value="GuttenPlans x1367">GuttenPlans x1367</label>
+                        <label><input type="checkbox" class="doughnut-checkbox" value="BSQ Mall x1366 - ATT">BSQ Mall x1366 - ATT</label>                                      
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@
                         <label style="font-size: 12px;" class="small-text"><input type="checkbox" id="bar" value="All" onchange="selectAllLocations(this)"> All Locations</label>
                     </div>
                 </div>
-                <canvas id="myChart"></canvas>
+                <canvas id="Bar"></canvas>
             </div>
             <div class="column right">
                 <h2 style= "color: #5B86E5;">MONTHLY SALES</h2>
@@ -166,6 +166,7 @@
     <script src="bar.js"></script>
     <script src="lineChart.js"></script>
     <script src="columnChart.js"></script>
+    
 
 </body>
 </html>

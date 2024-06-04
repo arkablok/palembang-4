@@ -98,7 +98,7 @@ function updateChart() {
         };
 
         // Create the chart using the configuration
-        const ctx = document.getElementById('myChart').getContext('2d');
+        const ctx = document.getElementById('Bar').getContext('2d');
         myChart = new Chart(ctx, config);
     }
 }
