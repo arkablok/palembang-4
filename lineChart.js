@@ -22,6 +22,9 @@ fetch('data_vending.json')
     const labels = sortedMonths.map(date => moment(date, 'YYYY-MM').format('MMM'));
     const transactions = sortedMonths.map(date => transactionsByMonth[date]);
 
+    const totalSales = Object.values(transactionsByMonth).reduce((sum, value) => sum + value, 0);
+    document.getElementById('sales').innerHTML = `<strong>$ ${totalSales.toFixed(2)}</strong>`;
+
     const q1data = transactions.slice(0, Math.floor(transactions.length * 1/4));
     const q2data = transactions.slice(Math.floor(transactions.length * 1/4), Math.floor(transactions.length * 2/4));
     const q3data = transactions.slice(Math.floor(transactions.length * 2/4), Math.floor(transactions.length * 3/4));

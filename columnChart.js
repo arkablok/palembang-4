@@ -49,7 +49,11 @@ function updateColumnChart() {
             }
             return acc;
         }, {});
-
+        const distinctProducts = new Set(filteredData.map(item => item.Product));
+        const totalDistinctProducts = distinctProducts.size;
+        document.getElementById('produk').innerHTML = `<strong>${totalDistinctProducts}</strong>`;
+        const totalProducts = Object.values(aggregatedData).reduce((sum, product) => sum + product.RQty, 0);
+        document.getElementById('totalProducts').innerHTML = `<strong>${totalProducts}</strong>`;
         const categories = ['Food', 'Water', 'Carbonated', 'Non Carbonated'];
         const chart = document.getElementById('columnChart').getContext('2d');
         const categorySelector = document.getElementById('categorySelector');
