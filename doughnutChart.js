@@ -3,7 +3,6 @@ function parseDate(dateString) {
     return new Date(`${year}-${month}-${day}`);
 }
 
-// Function to get date range based on selected value
 function getDateRange(value) {
     switch(value) {
         case 'jan': return [parseDate('01/01/2022'), parseDate('31/01/2022')];
@@ -22,11 +21,15 @@ function getDateRange(value) {
     }
 }
 
-// Function to update the doughnut chart
 function update() {
     const dateSelector = document.getElementById('selector');
     const selectedValue = dateSelector.value;
     const [startDate, endDate] = getDateRange(selectedValue);
+
+    const checkboxes = document.querySelectorAll('.doughnut-checkbox');
+    const selectedMachines = Array.from(checkboxes)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
 
     fetch('data_vending.json')
     .then(response => response.json())
@@ -36,11 +39,16 @@ function update() {
             return itemDate >= startDate && itemDate <= endDate;
         });
 
-        const transactionCountReduce = filteredData.reduce((acc, curr) => acc + 1, 0);
+        const machineFilteredData = selectedMachines.length === 0 
+        ? filteredData 
+        : filteredData.filter(item => selectedMachines.includes(item.Machine));
 
-        const machineNames = [...new Set(filteredData.map(item => item.Machine))];
+
+        const transactionCountReduce = machineFilteredData.reduce((acc, curr) => acc + 1, 0);
+
+        const machineNames = [...new Set(machineFilteredData.map(item => item.Machine))];
         const machineData = machineNames.map(machineName => {
-            const machineTransactions = filteredData.filter(item => item.Machine === machineName);
+            const machineTransactions = machineFilteredData.filter(item => item.Machine === machineName);
             return machineTransactions.length;
         });
 
@@ -52,7 +60,6 @@ function update() {
     .catch(error => console.error('Error fetching data:', error));
 }
 
-// Initial chart setup
 let myDoughnutChart;
 
 fetch('data_vending.json')
@@ -109,26 +116,11 @@ fetch('data_vending.json')
     });
 
     const checkboxes = document.querySelectorAll('.doughnut-checkbox');
-
-    // Add event listener to checkboxes
-    checkboxes.forEach((cb, i) => {
-        cb.addEventListener('change', () => {
-            const allUnchecked = Array.from(checkboxes).every(cb => !cb.checked);
-            if (allUnchecked) {
-                // Reset chart data to original state
-                myDoughnutChart.data.labels = machineNames;
-                myDoughnutChart.data.datasets[0].data = machineData;
-            } else {
-                const selectedMachines = Array.from(checkboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value);
-                const labels = selectedMachines.map(machineName => machineName);
-                const data = selectedMachines.map(machineName => machineData[machineNames.indexOf(machineName)]);
-                myDoughnutChart.data.labels = labels;
-                myDoughnutChart.data.datasets[0].data = data;
-            }
-            myDoughnutChart.update();
-        });
+    checkboxes.forEach(cb => {
+        cb.addEventListener('change', update);
     });
+
+    const dateSelector = document.getElementById('selector');
+    dateSelector.addEventListener('change', update);
 })
 .catch(error => console.error('Error fetching data:', error));
